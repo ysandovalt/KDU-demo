@@ -1,0 +1,38 @@
+<div class="list row">
+
+  <div class="col-md">
+    
+    <ul class="list-group">
+      <li class="list-group-item" >
+        <strong><h4 class="list-title">Total Usuarios : {{ count }}</h4></strong>
+      </li> 
+      <li class="list-group-item" *ngIf="pages > 1">
+        <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        responsive="true"
+        (pageChange)="handlePageChange($event)">
+        </pagination-controls>       
+      </li>
+
+      <li class="list-group-item"
+        *ngFor="let usuario of usuarios | paginate : {
+          itemsPerPage: pageSize,
+          currentPage: page,
+          totalItems: count
+        };
+        let i = index">
+        {{ usuario.username }}
+      </li>
+      <li class="list-group-item" *ngIf="pages > 1">
+        Items por Pagina:
+        <select (change)="handlePageSizeChange($event)">
+          <option *ngFor="let size of pageSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>     
+      </li>      
+    </ul>
+  </div>
+
+</div>

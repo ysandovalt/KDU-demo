@@ -1,0 +1,17 @@
+<div id="hero" class="d-flex flex-column align-items-center">
+
+  <div class="hero-container" >
+      <h1><a href="https://yolandasandoval.cl" target="blank">Yolanda Sandoval .CL</a></h1>
+      <h2>Ingenier&iacute;a de Software, An&aacute;lisis de Datos, Desarrollo App Web, Soporte y Mantenci&oacute;n</h2>
+
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <h3>Bienvenido : {{ username }} ==> <a href class="white-link" (click)="logout()"><u>Salir</u></a></h3>
+        </li>      
+      </ul>      
+  </div>
+
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
